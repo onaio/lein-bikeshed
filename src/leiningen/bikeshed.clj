@@ -25,6 +25,8 @@
            ["-d" "--doc-strings" "Check for missing doc strings"
             :flag true :default false]
            ["-c" "--check-colliding" "Check for colliding arguments"
+            :flag true :default false]
+           ["-r" "--check-redefs" "Check for with redefs"
             :flag true :default false])]
       '~project
       (when (:help-me opts#)
@@ -34,7 +36,8 @@
            '~project (select-keys opts# [:max-line-length
                                          :verbose
                                          :doc-strings
-                                         :colliding]))
+                                         :check-colliding
+                                         :check-redefs]))
         (System/exit -1)
         (System/exit 0)))
    '(do
