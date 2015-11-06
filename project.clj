@@ -1,4 +1,4 @@
-(defproject lein-bikeshed-ona "0.2.1-SNAPSHOT"
+(defproject lein-bikeshed-ona "0.2.1"
   :description (str "A Leiningen plugin designed to tell you your code is bad, "
                     "and that you should feel bad")
   :url "https://github.com/onaio/lein-bikeshed"

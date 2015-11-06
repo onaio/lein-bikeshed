@@ -215,7 +215,7 @@
                                  (:max-line-length options)))
         trailing-whitespace (trailing-whitespace all-dirs)
         trailing-blank-lines (trailing-blank-lines all-dirs)
-        bad-roots (when (:check-redefs) (bad-roots source-dirs))
+        bad-roots (when (:check-redefs options) (bad-roots source-dirs))
         bad-methods (when (:doc-strings options)
                       (missing-doc-strings project (:verbose options)))
         bad-arguments (when (:check-colliding options)

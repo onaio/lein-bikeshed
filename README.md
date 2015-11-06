@@ -44,13 +44,18 @@ Checking for arguments colliding with clojure.core functions.
 
 ## Options
 
-| Switches                    | Default | Desc                        |
-| --------------------------- | ------- | --------------------------- |
-| -H, --no-help-me, --help-me | false   | Show help                   |
-| -v, --no-verbose, --verbose | false   | Display missing doc strings |
-| -m, --max-line-length       |         | Max line length             |
+| Switches                    | Default | Desc                          |
+| --------------------------- | ------- | ----------------------------- |
+| -H, --no-help-me, --help-me | false   | Show help                     |
+| -v, --no-verbose, --verbose | false   | Display missing doc strings   |
+| -m, --max-line-length       | 80      | Max line length               |
+| -d, --doc-strings           | false   | Check for missing doc strings |
+| -c, --check-colliding       | false   | Check for colliding arguments |
+| -r, --check-redefs          | false   | Check for with redefs         |
 
 ## License
+
+Copyright © 2015 Peter Lubell-Doughtie & Ona
 
 Copyright © 2012 Matthew Lee Hinman & Sonian
 
