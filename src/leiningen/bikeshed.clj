@@ -11,7 +11,7 @@
   [project & args]
   (lein/eval-in-project
    (-> project
-       (update-in [:dependencies] conj ['lein-bikeshed "0.2.1-SNAPSHOT"]))
+       (update-in [:dependencies] conj ['lein-bikeshed-ona "0.2.1-SNAPSHOT"]))
    `(let [[opts# args# banner#]
           (clojure.tools.cli/cli
            '~args
@@ -21,14 +21,20 @@
             :flag true :default false]
            ["-m" "--max-line-length" "Max line length"
             :default nil
-            :parse-fn #(Integer/parseInt %)])]
+            :parse-fn #(Integer/parseInt %)]
+           ["-d" "--doc-strings" "Check for missing doc strings"
+            :flag true :default false]
+           ["-c" "--check-colliding" "Check for colliding arguments"
+            :flag true :default false])]
       '~project
       (when (:help-me opts#)
         (println banner#)
         (System/exit 0))
       (if (bikeshed.core/bikeshed
-           '~project {:max-line-length (:max-line-length opts#)
-                      :verbose (:verbose opts#)})
+           '~project (select-keys opts# [:max-line-length
+                                         :verbose
+                                         :doc-strings
+                                         :colliding]))
         (System/exit -1)
         (System/exit 0)))
    '(do

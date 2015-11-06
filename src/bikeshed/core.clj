@@ -216,8 +216,9 @@
         trailing-whitespace (trailing-whitespace all-dirs)
         trailing-blank-lines (trailing-blank-lines all-dirs)
         bad-roots (bad-roots source-dirs)
-        bad-methods (missing-doc-strings project (:verbose options))
-        bad-arguments (check-all-arguments project)]
+        bad-methods (when (:doc-strings options)
+                      (missing-doc-strings project (:verbose options)))
+        bad-arguments (when (:colliding options) (check-all-arguments project))]
     (or bad-arguments
         long-lines
         trailing-whitespace
